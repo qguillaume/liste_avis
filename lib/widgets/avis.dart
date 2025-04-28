@@ -8,31 +8,39 @@ class AvisWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 5),
-      padding: EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: avis.estPour ? Colors.green[300] : Colors.red[300],
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
-        children: [
-          Text(
-            avis.texte,
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 5),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(5, (index) {
-              return Icon(
-                index < avis.note ? Icons.star : Icons.star_border,
-                color: index < avis.note ? Colors.yellow : Colors.white,
-                size: 16,
-              );
-            }),
-          ),
-        ],
+    return Card(
+      color: Colors.blue,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Titre élément",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 8),
+            Text(
+              avis.texte,
+              style: TextStyle(color: Colors.white70, fontSize: 16),
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(5, (index) {
+                return Icon(
+                  index < avis.note ? Icons.star : Icons.star_border,
+                  color: Colors.white,
+                );
+              }),
+            ),
+          ],
+        ),
       ),
     );
   }
